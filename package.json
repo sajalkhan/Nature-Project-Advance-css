@@ -1,0 +1,14 @@
+{
+  "name": "nature",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass":"sass sass/main.scss css/style.css -w"
+  },
+  "author": "sajal",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.43.3"
+  }
+}
