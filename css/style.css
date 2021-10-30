@@ -196,10 +196,7 @@ body {
   width: calc(3 * (100% - 18rem) / 4 + 12rem);
 }
 
-.btn {
-  /* click state */
-}
-.btn:link, .btn:visited {
+.btn, .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -208,6 +205,8 @@ body {
   transition: all 0.2s;
   position: relative;
   font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
 }
 .btn:hover {
   transform: translateY(-3px);
@@ -217,54 +216,62 @@ body {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
-.btn:active {
+.btn:active, .btn:focus {
+  outline: none;
   transform: translateY(-1px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 .btn--white {
   background-color: #fff;
-  color: #777;
+  color: #f7f7f7;
 }
 .btn--white::after {
   background-color: #fff;
 }
+.btn--green {
+  background-color: #55c57a;
+  color: #fff;
+}
+.btn--green::after {
+  background-color: #55c57a;
+}
 .btn::after {
   content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
   display: inline-block;
   height: 100%;
   width: 100%;
   border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
   transition: all 0.4s;
 }
 .btn--animated {
-  animation: moveInBottom 1s ease-in-out 0.7s;
+  animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards;
   /* 👆 animation-fill-mode apply animation befor 
       the animation start */
 }
 
 .btn-text:link, .btn-text:visited {
+  font-size: 1.6rem;
   color: #55c57a;
   display: inline-block;
   text-decoration: none;
   border-bottom: 1px solid #55c57a;
   padding: 3px;
-  font-size: 1.6rem;
-  transition: transform 0.2s;
+  transition: all 0.2s;
 }
 .btn-text:hover {
   background-color: #55c57a;
   color: #fff;
-  transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 .btn-text:active {
-  transform: translateY(-1px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transform: translateY(0);
 }
 
 .composition {
@@ -445,6 +452,78 @@ body {
   font-weight: 100;
 }
 
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-sizing: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  font-size: 1.6rem;
+  padding-left: 9rem;
+  transform: skewX(-12deg);
+}
+.story__shape {
+  width: 15rem;
+  height: 15rem;
+  float: left;
+  shape-outside: circle(50% at 50% 50%);
+  -webkit-shape-outside: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+  -webkit-clip-path: circle(50% at 50% 50%);
+  transform: translateX(-3rem) skewX(12deg);
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+.story__image {
+  height: 100%;
+  transform: translateX(-4rem) scale(1.4);
+  transition: all 0.2s;
+  backface-visibility: hidden;
+}
+.story:hover .story__image {
+  transform: translateX(-4rem) scale(1);
+  filter: blur(3px) brightness(80%);
+}
+.story__caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.5s ease;
+  backface-visibility: hidden;
+}
+.story:hover .story__caption {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+.story__text {
+  transform: skewX(12deg);
+  backface-visibility: hidden;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.15;
+  overflow: hidden;
+}
+.bg-video__content {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 .section-about {
   background-color: #f7f7f7;
   padding: 25rem 0;
@@ -465,7 +544,11 @@ body {
 .section-tours {
   background-color: #f7f7f7;
   padding: 25rem 0 50rem 0;
-  margin-top: -10rem;
+}
+
+.section-stories {
+  padding: 15rem 0 15rem 0;
+  position: relative;
 }
 
 /*# sourceMappingURL=style.css.map */
