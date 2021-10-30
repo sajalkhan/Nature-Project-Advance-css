@@ -223,7 +223,7 @@ body {
 }
 .btn--white {
   background-color: #fff;
-  color: #f7f7f7;
+  color: #777;
 }
 .btn--white::after {
   background-color: #fff;
